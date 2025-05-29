@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Original MyLifeInABook colors */
+    --background: 53 83% 80%; /* #fbf39c - Yellow background (slightly warmer) */
+    --foreground: 210 14% 15%; /* #202329 - Dark text */
+    --card: 43 54% 96%; /* #fbf7e9 - Cream card background (lighter) */
+    --card-foreground: 210 14% 15%; /* #202329 - Dark text */
+    --popover: 43 54% 96%; /* #fbf7e9 - Cream background (lighter) */
+    --popover-foreground: 210 14% 15%; /* #202329 - Dark text */
+    --primary: 40 91% 56%; /* #f5b228 - Gold buttons */
+    --primary-foreground: 0 0% 100%; /* White text on gold */
+    --secondary: 222 93% 83%; /* #abc4fb - Light blue */
+    --secondary-foreground: 210 14% 15%; /* #202329 - Dark text */
+    --muted: 84 50% 85%; /* #dce4ac - Light green muted */
+    --muted-foreground: 25 10% 35%; /* Darker muted text */
+    --accent: 222 93% 83%; /* #abc4fb - Light blue */
+    --accent-foreground: 210 14% 15%; /* #202329 - Dark text */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 45 30% 70%; /* Light border */
+    --input: 43 54% 96%; /* #fbf7e9 - Cream background (lighter) */
+    --ring: 40 91% 56%; /* #f5b228 - Gold for focus ring */
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-rethink-sans), system-ui, sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-exposure), serif;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .script-accent {
+    font-family: var(--font-verveine), cursive;
+  }
+
+  .page-title {
+    @apply text-4xl md:text-5xl font-bold mb-6;
+    font-family: var(--font-exposure), serif;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-medium mb-4;
+    font-family: var(--font-exposure), serif;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 uppercase font-medium px-6 py-3 rounded-full;
+  }
+
+  /* Marquee animation for feature ticker */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+}
